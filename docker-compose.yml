@@ -11,7 +11,7 @@ services:
       - USER=odoo
       - PASSWORD=myodoo
     volumes:
-      - odoo-18:/var/lib/odoo
+      - odoo-19:/var/lib/odoo
       - ./helconfig:/etc/odoo
       - ./extra-addons:/mnt/extra-addons
   mydb:
@@ -22,7 +22,7 @@ services:
       - POSTGRES_PASSWORD=myodoo
       - POSTGRES_USER=odoo
     volumes:
-      - db-odoo-18:/var/lib/postgresql/data
+      - db-odoo-19:/var/lib/postgresql/data
 
   pgAdmin:
     image: dpage/pgadmin4
@@ -36,7 +36,7 @@ services:
       - PGADMIN_DEFAULT_PASSWORD=sxe_password_example
 
 volumes:
-  db-odoo-18:
-  odoo-18:
+  db-odoo-19:
+  odoo-19:
 
 # rej6-rbje-6wbu
