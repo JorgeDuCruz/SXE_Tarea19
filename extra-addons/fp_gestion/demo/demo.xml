@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+        <record id="ciclo_fp_dam" model="fp_gestion.ciclo">
+          <field name="name">CS DAM</field>
+          <field name="descripcion">Desarrollo de Aplicaciones Multiplataforma</field>
+          <field name="horas_totales">2000</field>
+        </record>
+
+        <record id="estudiante_1" model="fp_gestion.estudiante">
+          <field name="name">Mike Mancuerna</field>
+          <field name="fecha_nacimiento">1995-01-15</field>
+          <field name="email">mike@gym.com</field>
+          <field name="ciclo_id" ref="ciclo_fp_dam"/>
+          <field name="via_acceso">bachillerato</field>
+          
+          <field name="horas_aprobadas">2000</field>
+          
+          <field name="nota_media">9.5</field>
+          <field name="empresa_fct">Iron Pumping Systems</field>
+        </record>
+
+        <record id="estudiante_2" model="fp_gestion.estudiante">
+          <field name="name">Ana Ficticia</field>
+          <field name="fecha_nacimiento">2002-05-20</field>
+          <field name="email">ana.dev@test.com</field>
+          <field name="ciclo_id" ref="ciclo_fp_dam"/>
+          <field name="via_acceso">prueba_acceso</field>
+          
+          <field name="horas_aprobadas">1200</field>
+          
+          <field name="empresa_fct">Consultora Tech SA</field>
+        </record>
+        
+        <record id="estudiante_3" model="fp_gestion.estudiante">
+          <field name="name">Pepe Lento</field>
+          <field name="fecha_nacimiento">2005-12-10</field>
+          <field name="email">pepe@student.com</field>
+          <field name="ciclo_id" ref="ciclo_fp_dam"/>
+          <field name="via_acceso">eso</field>
+          
+          <field name="horas_aprobadas">200</field>
+        </record>
+    </data>
+</odoo>

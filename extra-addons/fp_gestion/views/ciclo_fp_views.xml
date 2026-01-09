@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+        <record id="view_fp_ciclo_form" model="ir.ui.view">
+            <field name="name">fp_gestion.ciclo.form</field>
+            <field name="model">fp_gestion.ciclo</field>
+            <field name="arch" type="xml">
+                <form string="Ciclo Formativo">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only" string="Nombre del Ciclo"/>
+                            <h1>
+                                <field name="name" placeholder="Ej: Desarrollo de Aplicaciones Multiplataforma"/>
+                            </h1>
+                        </div>
+
+                        <group>
+                            <group>
+                                <field name="descripcion"/>
+                                <field name="horas_totales"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Estudiantes Matriculados">
+                                <field name="estudiante_ids">
+                                    <list decoration-success="porcentaje_aprobadas == 100" decoration-warning="porcentaje_aprobadas &gt;= 50 and porcentaje_aprobadas &lt; 100">
+
+                                        <field name="name"/>
+                                        <field name="edad"/>
+
+                                        <field name="email" optional="hide"/>
+
+                                        <field name="porcentaje_aprobadas" widget="progressbar" string="% Progreso"/>
+
+                                        <field name="permite_fct" widget="boolean_toggle"/>
+
+                                        <field name="nota_media" optional="show"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_fp_ciclo_list" model="ir.ui.view">
+            <field name="name">fp_gestion.ciclo.list</field>
+            <field name="model">fp_gestion.ciclo</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="descripcion"/>
+                    <field name="horas_totales"/>
+                </list>
+            </field>
+        </record>
+    </data>
+</odoo>
