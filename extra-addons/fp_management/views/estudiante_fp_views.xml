@@ -7,11 +7,18 @@
         <field name="arch" type="xml">
             <form string="Estudiante de FP">
                 <sheet>
-                    <group>
+                    <group string="Datos Alumno">
                         <field name="name"/>
                         <field name="edad"/>
-                        <field name="ciclo_id"/>
                         <field name="via_acceso"/>
+                    </group>
+                    <group string="Datos Académicos">
+                         <field name="ciclo_id"/>
+                        <field name="horas_aprobadas" widget = "percentpie" string="Progreso Actual"/>
+                        <field name="nota_media" readonly="porcentaje_aprobadas &lt; 100"/>
+                    </group>
+                    <group string = "FCT">
+                        <field name="permite_fct" widget="boolean_toggle" readonly="1"/>
                     </group>
                 </sheet>
             </form>
@@ -22,14 +29,20 @@
         <field name="name">fp_management.estudiante.list</field>
         <field name="model">fp_management.estudiante</field>
         <field name="arch" type="xml">
-            <list>
+            <list decoration-succes="porcentaje_aprobadas == 100">
                 <field name="name"/>
                 <field name="edad"/>
                 <field name="ciclo_id"/>
-                <field name="via_acceso"/>
+                <field name="nota_media"/>
             </list>
         </field>
     </record>
+
+    <record id="view_fp_estudiante_kanban" model="ir.ui.view">
+            <field name="name">fp_gestion.estudiante.kanban</field>
+            <field name="model">fp_gestion.estudiante</field>
+            <field name="arch" type="xml"/>
+                <kanban/>
 
   </data>
 </odoo>
