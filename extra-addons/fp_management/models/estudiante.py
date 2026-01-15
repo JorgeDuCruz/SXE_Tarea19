@@ -21,7 +21,7 @@ class Estudiante(models.Model):
 
     horas_aprobadas = fields.Integer(string="Horas aprobadas")
     horas_ciclo = fields.Integer(string="Horas totales del ciclo",related=ciclo_id.horas_totales,readonly = True)
-    nota_media = fields.Float(string="Nota media")
+    nota_media = fields.Float(string="Nota media",default=0.0)
     porcentaje_aprobadas = fields.Float(string="% Aprobado",compute="_compute_datos_academicos")
     permite_fct = fields.Boolean(string = "Tiene fct permitida",compute="_compute_datos_academicos")
     
@@ -68,6 +68,18 @@ class Estudiante(models.Model):
             if record.email and not re.match(email_regex, record.email):
                 raise ValidationError("El formato del correo electrónico no es válido. Debe ser tipo 'ejemplo@correo.com'")
 
+    @api.constrains('nota_media')
+    def check_media(self):
+        for record in self:
+            if record.nota_media<0 or record.nota_media> 10:
+                raise ValidationError("La nota media no es valida")
+
+    @api.constrains('horas_aprobadas','ciclo_id')
+    def check_horas_aprobadas(self):
+        for record in self:
+            if __name__ == '__main__':
+                if record.ciclo_id and record.horas_aprobadas > record.ciclo_id.horas_totales:
+                    raise ValidationError("Las horas aprobadas no puede ser más que las de ciclo")
 
 
 
