@@ -20,7 +20,7 @@ class Estudiante(models.Model):
 
 
     horas_aprobadas = fields.Integer(string="Horas aprobadas")
-    horas_ciclo = fields.Integer(string="Horas totales del ciclo",related=ciclo_id.horas_totales,readonly = True)
+    horas_ciclo = fields.Integer(string="Horas totales del ciclo",related="ciclo_id.horas_totales",readonly = True)
     nota_media = fields.Float(string="Nota media",default=0.0)
     porcentaje_aprobadas = fields.Float(string="% Aprobado",compute="_compute_datos_academicos")
     permite_fct = fields.Boolean(string = "Tiene fct permitida",compute="_compute_datos_academicos")

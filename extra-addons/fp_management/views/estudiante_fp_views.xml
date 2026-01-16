@@ -26,7 +26,7 @@
     </record>
 
     <record id="view_fp_estudiante_list" model="ir.ui.view">
-        <field name="name">fp_management.estudiante.list</field>
+        <field name="name">fp_management.estudiante list</field>
         <field name="model">fp_management.estudiante</field>
         <field name="arch" type="xml">
             <list decoration-succes="porcentaje_aprobadas == 100">

@@ -9,15 +9,22 @@
                     <group>
                         <field name="name"/>
                         <field name="descripcion"/>
+                        <field name="horas_totales"/>
                     </group>
                     <!-- Esto nos permite mostrar los estudiantes debajo en una pestaña-->
                     <notebook>
                         <page string="Estudiantes">
                             <field name="estudiante_ids">
-                                <list editable="bottom">
+                                <list>
                                     <field name="name"/>
                                     <field name="edad"/>
-                                    <field name="via_acceso"/>
+                                    <field name="email" optional="hide"/>
+
+                                    <field name="porcentaje_aprobadas" widget="progressbar" string="% Progreso"/>
+
+                                    <field name="permite_fct" widget="boolean_toggle"/>
+
+                                    <field name="nota_media" optional="show"/>
                                 </list>
                             </field>
                         </page>
@@ -34,6 +41,7 @@
             <list>
                 <field name="name"/>
                 <field name="descripcion"/>
+                <field name="horas_totales"/>
             </list>
         </field>
     </record>
